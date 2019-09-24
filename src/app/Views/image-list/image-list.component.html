@@ -1,0 +1,14 @@
+<div class="container mt-3">
+    <h2 class="text-primary">Select User</h2>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)" >
+        <div>
+            <select multiple="multiple" class="form-control scrollingDown" name="userId" #userId="ngModel" [(ngModel)]="selectUser" size="10">
+                <option *ngFor="let user of userDetails" class="form-control sizeIncrease" [ngStyle]="{'background-image': 'url('+ '../../assets/' + user.avatar + ')'}" ngClass="imageDrop" value="{{ user.id }}">
+                    {{ user.first_name }} {{ user.full_name }}
+                </option>
+            </select>
+        </div>
+        <input type="submit" value="Select" class="btn btn-lg btn-outline-success float-right mr-2" />
+    </form>
+    <button class="btn btn-lg btn-outline-danger float-left" (click)="onReset()">Cancel</button>
+</div>
