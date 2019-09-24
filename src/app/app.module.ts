@@ -7,12 +7,14 @@ import { ImageListComponent } from './Views/image-list/image-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { SelectedUserComponent } from './Views/selected-user/selected-user.component';
+import { SearchPipePipe } from './Services/search-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImageListComponent,
     SelectedUserComponent,
+    SearchPipePipe,
   ],
   imports: [
     BrowserModule,
