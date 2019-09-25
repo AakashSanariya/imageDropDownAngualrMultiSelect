@@ -1,11 +1,11 @@
 <div class="container mt-3">
-    <h2 class="text-primary">Select User</h2>
+    <h2 class="text-primary">Selected User</h2>
     <form #userForm="ngForm" (ngSubmit)="onSubmit(userDetails)" >
         <div class="scrollingDown">
             <div class="media border p-3" *ngFor="let user of userDetails">
                 <img src="{{ '../../assets/' + user.avatar }}" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                 <div class="media-body">
-                    <h4>{{ user.first_name }} <small><i>{{ user.full_name }}</i></small></h4>
+                    <h4><!--{{ user.first_name }} --><small><i>{{ user.full_name }}</i></small></h4>
                     <input type="hidden" name="userId" #useId="ngModel" [(ngModel)]="user" value="user.id">
                 </div>
             </div>

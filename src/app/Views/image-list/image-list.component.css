@@ -8,7 +8,8 @@
     background-position: left;
     background-size: 50px;
     padding-left: 80px;
-}
-.sizeIncrease{
+
+    /* For Size Increase Of Dropdown*/
     height: 50px;
+    margin-right: auto;
 }

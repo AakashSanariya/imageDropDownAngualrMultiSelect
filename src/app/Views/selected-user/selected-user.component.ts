@@ -39,8 +39,6 @@ export class SelectedUserComponent implements OnInit {
     payLoad.forEach(result => {
       this.userId.push(result.id);
     });
-    console.log(this.userId);
-
     this.router.navigate(['/user/'], {queryParams: {userId:this.userId}});
   }
 

@@ -3,11 +3,14 @@
     <div class="input-group mb-3">
         <input type="text" [(ngModel)]="searchText" name="search" class="form-control" placeholder="Search.....">
     </div>
-    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)" >
+    <form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit(userForm.value)" id="userFormHide">
         <div>
-            <select multiple="multiple" class="form-control scrollingDown" name="userId" #userId="ngModel" [(ngModel)]="selectUser" size="10">
-                <option *ngFor="let user of userDetails | searchPipe: searchText" class="form-control sizeIncrease" [ngStyle]="{'background-image': 'url('+ '../../assets/' + user.avatar + ')'}" ngClass="imageDrop" value="{{ user.id }}">
-                    {{ user.first_name }} {{ user.full_name }}
+            <div *ngIf="userForm.submitted && userId.invalid" class="alert alert-danger">
+                <div *ngIf="userId.errors.required"> Please Select Any User Information</div>
+            </div>
+            <select multiple="multiple" class="form-control scrollingDown" name="userId" #userId="ngModel" [(ngModel)]="selectUser" size="10" required>
+                <option *ngFor="let user of userDetails | searchPipe: searchText" class="border border-secondary" [ngStyle]="{'background-image': 'url('+ '../../assets/' + user.avatar + ')'}" ngClass="imageDrop" value="{{ user.id }}">
+                    <!--{{ user.first_name }}--> {{ user.full_name }}
                 </option>
             </select>
         </div>
