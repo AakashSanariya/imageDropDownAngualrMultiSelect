@@ -5,9 +5,11 @@
 }
 .imageDrop{
     background-repeat: no-repeat;
-    background-position: left;
-    background-size: 50px;
+    background-position: left center;
+    background-size: contain;
     padding-left: 80px;
+    overflow: hidden;
+    padding-top: 25px;
 
     /* For Size Increase Of Dropdown*/
     height: 50px;
