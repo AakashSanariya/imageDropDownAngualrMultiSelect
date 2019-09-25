@@ -1,10 +1,14 @@
 <div class="container mt-3">
-    <h2 class="text-primary">Select User</h2>
+    <h2 class="text-primary">Select User
+        <button type="button" class="btn btn-sm btn-outline-primary float-right" data-toggle="collapse" data-target="#hideForm" aria-label="Close" aria-expanded="false" aria-controls="hideForm">
+            X
+        </button>
+    </h2>
     <div class="input-group mb-3">
         <input type="text" [(ngModel)]="searchText" name="search" class="form-control" placeholder="Search.....">
     </div>
     <form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit(userForm.value)" id="userFormHide">
-        <div>
+        <div id="hideForm">
             <div *ngIf="userForm.submitted && userId.invalid" class="alert alert-danger">
                 <div *ngIf="userId.errors.required"> Please Select Any User Information</div>
             </div>
