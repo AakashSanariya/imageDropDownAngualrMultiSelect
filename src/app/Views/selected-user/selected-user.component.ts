@@ -11,7 +11,7 @@ export class SelectedUserComponent implements OnInit {
 
   userDetails = [];
   userId = [];
-  constructor(private listService: JsonServiceService,
+  constructor(private jsonService: JsonServiceService,
               private  route: ActivatedRoute,
               private router: Router
   ) { }
@@ -19,7 +19,7 @@ export class SelectedUserComponent implements OnInit {
   ngOnInit() {
     this.route.queryParamMap.subscribe(result => {
       result['params'].userId.forEach(userId => {
-        this.listService.listImageAndDetails().subscribe(result => {
+        this.jsonService.listImageAndDetails().subscribe(result => {
           result[1].forEach(user => {
             if(userId == user['id']){
               result[0].forEach(image => {

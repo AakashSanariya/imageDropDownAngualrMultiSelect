@@ -15,7 +15,7 @@ export class ImageListComponent implements OnInit {
   selectUser = [];
   searchText;
 
-  constructor(private listService: JsonServiceService,
+  constructor(private jsonService: JsonServiceService,
               private router: Router,
               private route: ActivatedRoute
   ) { }
@@ -35,7 +35,7 @@ export class ImageListComponent implements OnInit {
     }, error => {
       console.log(error);
     });
-    this.listService.listImageAndDetails().subscribe(result => {
+    this.jsonService.listImageAndDetails().subscribe(result => {
         result[1].forEach(user => {
           result[0].forEach(image => {
             if (image['id'] === user['id']) {
