@@ -13,6 +13,8 @@ export class ImageListComponent implements OnInit {
   image: string;
   userDetails: {};
   selectUser = [];
+  checkUserArray = [];
+  selectUserObj = {};
   searchText;
 
   constructor(private jsonService: JsonServiceService,
@@ -26,6 +28,7 @@ export class ImageListComponent implements OnInit {
         param['params']['userId'].forEach(result => {
           if(result != null) {
             this.selectUser.push(result);
+            this.checkUserArray.push(result);
           }
           else{
             this.selectUser = null;
@@ -47,10 +50,20 @@ export class ImageListComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+    console.log(this.selectUser)
   }
 
-  onSubmit(payLoad){
-    this.router.navigate(['/selecteduser/'], {queryParams: payLoad});
+  onSelect(event){
+    if(this.checkUserArray.indexOf(event.target.value) > -1){
+    }
+    else{
+      this.checkUserArray.push(event.target.value); //for checkbox than used
+    }
+  }
+
+  onSubmit(){
+    this.selectUserObj['userId'] = this.checkUserArray;  //for Using Check box Pass variable in Query Param
+    this.router.navigate(['/selecteduser/'], {queryParams: this.selectUserObj});
   }
 
   onReset(){
