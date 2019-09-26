@@ -11,7 +11,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 export class ImageListComponent implements OnInit {
 
   image: string;
-  userDetails: {};
+  userDetails: [];
   selectUser = [];
   checkUserArray = [];
   selectUserObj = {};
@@ -47,10 +47,15 @@ export class ImageListComponent implements OnInit {
           });
         });
       this.userDetails = result[1];
+      this.checkUserArray.forEach(data => {
+        let key = this.userDetails.findIndex(k => k['id'] == data);
+        this.userDetails[key]['checked'] = true;
+      });
     }, error => {
       console.log(error);
     });
     console.log(this.selectUser)
+    console.log(this.userDetails)
   }
 
   onSelect(event){
@@ -69,6 +74,7 @@ export class ImageListComponent implements OnInit {
   onReset(){
     this.selectUser = null;
     this.checkUserArray = [];
+    this.ngOnInit();
     this.router.navigate(['user']);
   }
 }
