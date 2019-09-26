@@ -68,6 +68,7 @@ export class ImageListComponent implements OnInit {
 
   onReset(){
     this.selectUser = null;
+    this.checkUserArray = [];
     this.router.navigate(['user']);
   }
 }
