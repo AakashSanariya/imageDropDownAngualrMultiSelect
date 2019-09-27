@@ -40,10 +40,10 @@ export class SelectedUserComponent implements OnInit {
   }
 
   onSelectRemove(event, userId){
-    let key = this.checkUserArray.findIndex(k => k == event.target.value);
+    let key = this.checkUserArray.findIndex(k => k == event.target.value); //finding Index Of Remove Selected User
     // console.log(key);
     if(key > -1){
-      this.checkUserArray.splice(key, 1);
+      this.checkUserArray.splice(key, 1); // Remove That Un Selected User
     }
     if(key == -1){
       this.checkUserArray.push(userId);
